@@ -17,7 +17,7 @@ export default function IDCard() {
         }
         const data = await response.json()
         console.log(data);
-        
+
         setUsers(data)
         setUserData(data[0]) // Set first user as default
       } catch (err) {
@@ -52,7 +52,7 @@ export default function IDCard() {
 
   return (
     <div className="flex flex-col items-center">
-  
+
       {/* Navigation buttons */}
       <div className="flex gap-4 mb-4">
         <button
@@ -87,14 +87,18 @@ export default function IDCard() {
               // Front side - Simplified design
               <div className="w-full h-full bg-white flex flex-col">
                 {/* College header */}
-                <div className="bg-purple-800 py-4 px-6 text-white text-center border-b-4 border-yellow-400">
-                  <img src="https://keshav.du.ac.in/img/logo.png" alt="" className="-mt-3 h-[120px] m-auto" />
-                  <h1 className="text-[36px] font-bold uppercase tracking-wide">KESHAV MAHAVIDYALAYA</h1>
-                  <p className="text-[20px] mt-1">NAAC ACCREDITED INSTITUTION-"A"GRADE</p>
-                  <p className="text-[18px]">H-4-5, ZONE PITAMPURA, DELHI-34</p>
-                  <p>PH.: 011-27018805, TELEFAX: 011-27018806</p>
-                  <p className="text-[18px]">(UNIVERSITY OF DELHI)</p>
+                <div className="flex justify-between p-3 bg-purple-800 ">
+                  <img src="/du-logo.png" alt="" className="-mt-3 h-[80px]" />
+                  <div className="bg-purple-800  text-white text-center">
+                    <h1 className="text-[30px] font-bold uppercase tracking-wide">KESHAV MAHAVIDYALAYA</h1>
+                    <p className="text-[20px] mt-1 uppercase">NAAC Accredited 'A' Grade Cycle 2</p>
+                    <p className="text-[18px]">H-4-5, ZONE PITAMPURA, DELHI-34</p>
+                    <p>PH.: 011-27018805, TELEFAX: 011-27018806</p>
+                    <p className="text-[18px]">(UNIVERSITY OF DELHI)</p>
+                  </div>
+                  <img src="/keshav-logo.png" alt="" className="-mt-3 h-[80px]" />
                 </div>
+
 
                 {/* Card title */}
                 <div className="bg-yellow-400 py-2 px-6 text-center">
@@ -108,9 +112,9 @@ export default function IDCard() {
                   {/* Top section - Photo and basic info */}
                   <div className="flex flex-col items-center text-center mb-6">
                     {/* Photo */}
-                    <div className="w-1/3 ">
+                    <div className="">
                       <div className="border-2 border-purple-600 rounded-md overflow-hidden shadow-md">
-                        <img src={userData.studentPhoto} alt="" className="object-center object-cover w-full h-[170px]" />
+                        <img src={userData.studentPhoto} alt="" className="object-center object-cover w-full h-[355px]" />
                       </div>
                     </div>
 
@@ -120,13 +124,8 @@ export default function IDCard() {
 
                       <p className="text-[26px] font-semibold text-purple-800 mb-2">B.Sc. (Bachelor of Science)</p>
                       <p className="text-[26px] font-semibold text-purple-800 mb-2">Physical Science with Computer Science</p>
-
-
-                      <div className="bg-purple-100 inline-block px-6 py-2 rounded-md mb-2">
-                        <p className="text-[24px] text-left font-bold text-purple-900">Enrollment No : {userData.enrollmentNumber}</p>
-                      </div>
                       <div className="bg-purple-100 inline-block px-6 py-2 rounded-md">
-                        <p className="text-[24px] text-left font-bold text-purple-900">Roll No : {userData.collegeRollNumber}</p>
+                        <p className="text-[24px] text-center font-bold text-purple-900">Roll No : {userData.collegeRollNumber}</p>
                       </div>
                       <p className="text-[26px] font-semibold text-purple-800 mb-2">
                       </p>
@@ -166,11 +165,10 @@ export default function IDCard() {
               // Back side - Updated design with personal details
               <div className="w-full h-full bg-white flex flex-col border-4 border-purple-800">
                 {/* College header */}
-                <div className="bg-purple-800 py-5 px-6 gap-1 text-white text-center flex items-center justify-center">
-                  <div className="w-14 h-14 bg-white rounded-full border-4 border-yellow-400 overflow-hidden mr-4">
-                    <img src="https://keshav.du.ac.in/img/logo.png" alt="Logo" className="w-full h-full object-contain" />
-                  </div>
-                  <h1 className="text-[36px] font-bold uppercase tracking-wide">KESHAV MAHAVIDYALAYA</h1>
+                <div className="bg-purple-800 py-3 px-6 gap-1 text-white text-center flex items-center justify-between">
+                    <img src="/du-logo.png" alt="Logo" className="w-14 h-14  object-contain" />
+                  <h1 className="text-[32px] font-bold uppercase tracking-wide">KESHAV MAHAVIDYALAYA</h1>
+                    <img src="/keshav-logo.png" alt="Logo" className="w-14 h-14  object-contain" />
                 </div>
 
                 {/* QR Code */}
@@ -186,10 +184,10 @@ export default function IDCard() {
                 </div>
 
                 {/* Personal Details Section */}
-                <div className="p-6 flex-grow">
+                <div className="p-6 py-4 flex-grow">
                   <h3 className="text-[24px] font-bold text-purple-800">Personal Details</h3>
-                  <hr className="mb-4 text-purple-800" />
-                  <div className="grid grid-cols-2 gap-y-4 gap-x-6 text-[18px] mb-6">
+                  <hr className="mb-3 text-purple-800" />
+                  <div className="grid grid-cols-2 gap-y-4 gap-x-6 text-[18px] mb-4">
                     <div className="flex flex-col">
                       <span className="text-purple-600 font-medium">Father's Name</span>
                       <span className="font-bold">{userData.fatherName}</span>
@@ -203,20 +201,20 @@ export default function IDCard() {
                       <span className="font-bold">{userData.dob}</span>
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-purple-600 font-medium">Blood Group</span>
-                      <span className="font-bold">{userData.bloodGroup}</span>
+                      <span className="text-purple-600 font-medium">Mobile</span>
+                      <span className="font-bold">{userData.mobile ? userData.mobile : 9310256281}</span>
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-purple-600 font-medium">Batch</span>
-                      <span className="font-bold">{userData.batch}</span>
+                    <div className="flex flex-col text-[28px]">
+                      <span className="text-purple-600  font-bold">Blood Group</span>
+                      <span className="font-bold">{userData.bloodGroup}</span>
                     </div>
 
                   </div>
 
                   {/* Contact info */}
-                  <div className="mb-6">
+                  <div className="mb-3">
                     <h3 className="text-[24px] font-bold text-purple-800">Emergency Contact</h3>
-                    <hr className="mb-4 text-purple-800" />
+                    <hr className="mb-3 text-purple-800" />
                     <div className="flex items-center gap-2 text-[18px] mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -234,7 +232,7 @@ export default function IDCard() {
                       </svg>
                       <span>{userData.emergencyContact}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-[18px]">
+                    <div className="flex  gap-2 text-[18px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
@@ -262,22 +260,23 @@ export default function IDCard() {
 
 
                   {/* Rules */}
-                  <div className="border-t-2 border-b-2 border-purple-200 py-2 mb-4">
+                  <div className="border-t-2 border-b-2 border-purple-200 py-2 mb-3">
                     <ul className="text-[16px] text-purple-900 space-y-2">
-                      <li className="font-semibold">• This card is property of <span className="font-bold text-black">KESHAV MAHAVIDYALAYA</span></li>
-                      <li>• Must be carried at all times within campus</li>
-                      <li>• Not transferable</li>
-                      <li>• Loss should be reported immediately</li>
+                      <li className="font-semibold">• This card is property of <span className="font-bold text-black">KESHAV MAHAVIDYALAYA.</span></li>
+                      <li>• Must be carried at all times within campus.</li>
+                      <li>• The card is not <span className="uppercase">transferable.</span></li>
+                      <li>• Loss of ID card should be reported immediately.</li>
+                      <li>• Duplicate ID card will be issued on payment of Rs. 200/- only and application with FIR from Police Station.</li>
                     </ul>
                   </div>
 
                   {/* Validity */}
-                  <div className="text-center mb-4">
+                  {/* <div className="text-center mb-4">
                     <p className="text-[16px]">
                       <span className="font-semibold">Issued on:</span> {userData.issueDate} |
                       <span className="font-semibold"> Valid until:</span> {userData.validityDate}
                     </p>
-                  </div>
+                  </div> */}
 
 
                 </div>
