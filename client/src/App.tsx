@@ -78,7 +78,7 @@ export default function IDCard() {
         
         // Calculate dimensions to fit the PDF
         const imgWidth = 210; // A4 width in mm
-        const imgHeight = (canvas.he3..6.263ight * imgWidth) / canvas.width;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
         pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
       }
