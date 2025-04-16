@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "convert-csv-to-json": "^2.50.0",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9",
+    "qrcode": "^1.5.4",
+    "react-json-view": "^1.21.3"
+  }
+}
