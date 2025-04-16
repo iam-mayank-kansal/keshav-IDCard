@@ -60,7 +60,7 @@ export default function IDCard() {
       
       // Process each card
       for (let x = 0; x < particularIDCards.length; x++) {
-        const card = particularIDCards[x];
+        const card:any = particularIDCards[x];
         
         const canvas = await html2canvas(card, {
           scale: 2,
