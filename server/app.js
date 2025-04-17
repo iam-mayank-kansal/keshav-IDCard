@@ -28,7 +28,7 @@ const generateQRCodes = async (students) => {
 app.get('/students', async (req, res) => {
   try {
     console.log('Reading CSV...');
-    const data = await csvtojson().fromFile("../indian_students_data.csv");
+    const data = await csvtojson().fromFile("../indian_students_data2.csv");
     console.log('Reading CSV Completed...');
     console.log('Generating QR Codes...');
     const qrList = await generateQRCodes(data);
