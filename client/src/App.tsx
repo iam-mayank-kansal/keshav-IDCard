@@ -17,10 +17,12 @@ export default function IDCard() {
           throw new Error('Failed to fetch data')
         }
         const data = await response.json()
-        console.log(data);
-
-        setUsers(data)
-        setUserData(data[0]) // Set first user as default
+        console.log("Data : ",data);
+        
+        const first100Users = data.slice(0, 5)
+        console.log("first100Users : ",first100Users);
+        setUsers(first100Users)
+        setUserData(first100Users[0])
       } catch (err) {
         console.error('Error fetching data:', err)
       }
@@ -122,7 +124,7 @@ export default function IDCard() {
       </div> */}
 
       {/* Display current user position */}
-        {/* <div className="mb-4 text-purple-800 font-medium">
+      {/* <div className="mb-4 text-purple-800 font-medium">
           User {currentUserIndex + 1} of {users.length}
         </div> */}
       <button onClick={() => handleDownload()} className="text-white text-4xl py-3 px-6 bg-purple-800 rounded-xl ">{Loading ? "Downloading" : "Download"}</button>
